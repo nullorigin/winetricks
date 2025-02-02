@@ -20,7 +20,6 @@
 #   <https://www.gnu.org/licenses/>.
 
 import requests
-import getpass
 import json
 import sys
 import os
@@ -72,12 +71,8 @@ def upload_asset(path, owner, repo, tag):
     fname = ntpath.basename(path)
     with open(path) as f:
         contents = f.read()
-
-    try:
-        content_type = mime.from_file(path)
-    except:
-        content = magic.detect_from_filename(path)
-        content_type = content.name
+    content = magic.detect_from_filename(path)
+    content_type = content.name
 
     headers = {'Content-Type': content_type, 'Authorization': token}
     params = {'name': fname}
