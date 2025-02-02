@@ -22,7 +22,7 @@ SOURCES = Makefile src tests
 
 version=$(shell grep '^WINETRICKS_VERSION' < src/winetricks | sed 's/.*=//')
 
-PREFIX = /usr
+PREFIX = /usr/local
 
 all:
 	@ echo "Nothing to compile. Use: check, clean, cleanup, dist, install"
